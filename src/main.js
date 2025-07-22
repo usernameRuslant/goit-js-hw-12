@@ -22,8 +22,7 @@ async function onSubmit(e) {
   query = e.target.elements['search-text'].value.trim();
   if (!query) {
     iziToast.error({
-      message:
-        'Sorry, there are no images matching your search query. Please try again',
+      message: 'enter a search query to find images',
       position: 'topRight',
     });
     return;
@@ -60,7 +59,7 @@ async function onSubmit(e) {
     hideLoader();
   }
 }
-//
+////////////////////////////////////////////
 async function onClickLoadMore() {
   showLoader();
   try {
@@ -68,8 +67,11 @@ async function onClickLoadMore() {
     const { data } = await getImagesByQuery(query, page, perPage);
 
     refs.gallery.insertAdjacentHTML('beforeend', createGallery(data.hits));
+
     refreshLightbox();
+
     getBoundingClientRect();
+
     const totalPages = Math.ceil(data.totalHits / perPage);
     if (page >= totalPages) {
       hideLoadMoreButton();

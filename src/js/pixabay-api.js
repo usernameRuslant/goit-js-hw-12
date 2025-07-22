@@ -14,5 +14,6 @@ export async function getImagesByQuery(query, page, perPage) {
     },
   };
 
-  return axios.get('', options);
+  const response = await axios.get('', options);
+  return response.data;
 }
