@@ -1,0 +1,15 @@
+/**
+  |============================
+  | include css partials with
+  | default @import url()
+  |============================
+*/
+/* other styles*/
+/* @import url('flatpickr/dist/flatpickr.min.css'); */
+
+/* Common styles */
+@import url('modern-normalize/modern-normalize.css');
+@import url('./reset.css');
+
+/* Sections style */
+@import url('./form.css');
