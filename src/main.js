@@ -18,10 +18,6 @@ let query = null;
 
 async function onSubmit(e) {
   e.preventDefault();
-  showLoader();
-  page = 1;
-  clearGallery();
-  hideLoadMoreButton();
 
   query = e.target.elements['search-text'].value.trim();
   if (!query) {
@@ -32,6 +28,10 @@ async function onSubmit(e) {
     });
     return;
   }
+  showLoader();
+  page = 1;
+  clearGallery();
+  hideLoadMoreButton();
   try {
     const { data } = await getImagesByQuery(query, page, perPage);
 
@@ -43,6 +43,7 @@ async function onSubmit(e) {
           'Sorry, there are no images matching your search query. Please try again',
         position: 'topRight',
       });
+
       return;
     }
     const galleryMarkup = createGallery(data.hits);
