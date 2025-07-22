@@ -49,3 +49,17 @@ export function showLoader() {
 export function hideLoader() {
   refs.loader.classList.add('is-hidden');
 }
+export function showLoadMoreButton() {
+  refs.loadMoreButton.classList.remove('is-hidden');
+}
+export function hideLoadMoreButton() {
+  refs.loadMoreButton.classList.add('is-hidden');
+}
+export function getBoundingClientRect() {
+  const { height: cardHeight } =
+    refs.gallery.firstElementChild.getBoundingClientRect();
+  window.scrollBy({
+    top: cardHeight * 2 + 20,
+    behavior: 'smooth',
+  });
+}
